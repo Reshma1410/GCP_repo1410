@@ -1,4 +1,4 @@
-timeout: 350s
+timeout: 300s
 steps:
   - name: 'maven:3.8.1-openjdk-17'
     entrypoint: 'mvn'
