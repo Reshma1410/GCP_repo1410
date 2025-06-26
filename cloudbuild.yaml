@@ -1,22 +1,23 @@
+timeout: 300s
 steps:
   - name: 'maven:3.8.1-openjdk-17'
     entrypoint: 'mvn'
     args: ['clean', 'package']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/spring-app', '.']
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/my-sprint-boot-repo2506', '.']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/spring-app']
+    args: ['push', 'gcr.io/$PROJECT_ID/my-sprint-boot-repo2506']
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
     args:
       - 'run'
       - 'deploy'
-      - 'spring-app'
+      - 'my-sprint-boot-repo2506'
       - '--image'
-      - 'gcr.io/$PROJECT_ID/spring-app'
+      - 'gcr.io/$PROJECT_ID/my-sprint-boot-repo2506'
       - '--region'
       - 'asia-south1'
       - '--platform'
