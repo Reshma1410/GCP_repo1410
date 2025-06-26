@@ -49,7 +49,7 @@ public class CustomerServiceImpl implements CustomerService{
             return response;
         } catch (Exception e) {
 
-            System.out.println("customer failed to save");
+            System.out.println("customers failed to save");
             return new BaseResponse(
                     ConstantCode.FAIL,
                     "Error saving customer: " + e.getMessage(),
